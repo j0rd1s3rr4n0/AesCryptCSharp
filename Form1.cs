@@ -12,7 +12,7 @@
         private void encrypt_Click(object sender, EventArgs e)
         {
             AES aes = new AES();
-            TB_result.Text = aes.Encrypt(TB_txt.Text,TB_passphrase.Text, salt);
+            TB_result.Text = aes.Encrypt(TB_txt.Text, TB_passphrase.Text, salt);
         }
 
         private void decrypt_Click(object sender, EventArgs e)
@@ -20,11 +20,11 @@
             AES aes = new AES();
             TB_result.Text = aes.Decrypt(TB_txt.Text, TB_passphrase.Text, salt);
         }
-        private void CloseApp_Click(object sender, EventArgs e){this.closeAppNow();}
-        private void label1_Click(object sender, EventArgs e){this.closeAppNow();}
+        private void CloseApp_Click(object sender, EventArgs e) { this.closeAppNow(); }
+        private void label1_Click(object sender, EventArgs e) { this.closeAppNow(); }
         private void closeAppNow()
         {/* In a console application:*//*Environment.Exit(0);*//*In a WPF application:*/
-         Close();
+            Close();
         }
 
         private void btn_read_txt_Click(object sender, EventArgs e)
@@ -44,7 +44,8 @@
         {
             var fileContent = string.Empty;
             var filePath = string.Empty;
-            try { 
+            try
+            {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
                     openFileDialog.InitialDirectory = "C:\\";
@@ -56,7 +57,8 @@
                     {
                         filePath = openFileDialog.FileName;
                         var fileStream = openFileDialog.OpenFile();
-                        try { 
+                        try
+                        {
                             using (StreamReader reader = new StreamReader(fileStream))
                             {
                                 fileContent = reader.ReadToEnd();
